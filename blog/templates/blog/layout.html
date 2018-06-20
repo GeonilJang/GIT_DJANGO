@@ -1,40 +1,3 @@
-{% extends "blog/layout.html"%}
-
-{% block title%}
-  {{ post.title }}
-{% endblock%}
-
-
-{% block content %}
-<!-- 여기에 블록을 주세요 -->
-<div  style="margin-left:80px;margin-right:80px">
-  <div class="panel panel-default">
-    <div class="panel-heading"><strong>{{post.title}}</div>
-    <div class="panel-body">
-      <p>{{post.content|linebreaks}}</p>
-    </div>
-  </div>w
-
-  <div>
-      <h4>Comments</h4>
-
-        {% for comment in post.comment_set.all %}
-        <div class="panel panel-default">
-          <div class="panel-heading">by {{comment.author}}</div>
-          <div class="panel-body">
-              {{ comment.message }}
-              <small>at {{comment.update_at}}</small>
-          </div>
-        </div>
-        {% endfor %}
-
-    </div>
-</div>
-<!-- 여기에 블록을 주세요 -->
-{% endblock %}
-
-
-
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -42,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>건일이의 블로그</title>
+    <title>{% block title %}건일이의 블로그{%endblock%}</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
@@ -74,7 +37,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a href="/blog" onclick="checkClick(1)">Home</a></li>
+                <li><a href="#Home" onclick="checkClick(1)">Home</a></li>
                 <li><a href="#About" onclick="checkClick(2)">About</a></li>
                 <li><a href="#Contact" onclick="checkClick(3)">Contact</a></li>
                 <li class="dropdown">
@@ -99,14 +62,13 @@
 
 
 
+<!-- 여기에 블록을 주세요 -->
+
+{% block content %}
+{% endblock %}
 
 
-
-
-
-
-
-
+<!-- 여기에 블록을 주세요 -->
 
 
       <!-- start FOOTER -->
