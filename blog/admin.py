@@ -58,9 +58,8 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    pass
-
-
+    list_display = ['post','author','message']
+    
 
 @admin.register(Tag)
 class CommentAdmin(admin.ModelAdmin):
