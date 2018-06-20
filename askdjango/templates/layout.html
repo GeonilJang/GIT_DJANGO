@@ -35,11 +35,11 @@
               <a class="navbar-brand" href="/blog">Geonil's Blog</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav" style="">
+              <ul class="nav navbar-nav">
                 <li><a href="#Home" onclick="checkClick(1)">Home</a></li>
                 <li><a href="#About" onclick="checkClick(2)">About</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <a href="#" onclick="checkClick('drop')" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Another action</a></li>
@@ -50,16 +50,16 @@
                     <li><a href="#">One more separated link</a></li>
                   </ul>
                 </li>
-                <li><a href="#Contact" onclick="checkClick(3)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(3)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(3)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(3)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(3)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(3)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(3)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(3)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(3)">Cont</a></li>
-                <li><a href="#Contact" onclick="checkClick(3)">Cont</a></li>
+                <li><a href="#Contact" onclick="checkClick(4)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(5)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(6)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(7)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(8)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(9)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(10)">Cont</a></li>
+                <li><a href="#Contact" onclick="checkClick(11)">Cont</a></li>
+                <li><a href="#Contact" onclick="checkClick(12)">Cont</a></li>
+                <li><a href="/accounts/profile" onclick="checkClick(13)">프로필 가기</a></li>
               </ul>
             </div>
           </div>
@@ -94,11 +94,24 @@
     <script>
       function checkClick(index)
       {
-          let arr = [0,"","",""]
+          let arr = [0,"","","","","","","","","","","","",""]
+          if(index == 'drop')
+            arr = [0,"","","","","","","","","","","","",""]
           if(index)arr[index] = 'active'
-            $('#navbar ul li:nth-child(1)').attr("class",arr[1])
-            $('#navbar ul li:nth-child(2)').attr("class",arr[2])
-            $('#navbar ul li:nth-child(3)').attr("class",arr[3])
+            $('#navbar ul:first-child li:nth-child(1)').attr("class",arr[1])
+            $('#navbar ul:first-child li:nth-child(2)').attr("class",arr[2])
+            $('#navbar ul:first-child li:nth-child(3)').attr("class",arr[3])
+            $('#navbar ul:first-child li:nth-child(4)').attr("class",arr[4])
+            $('#navbar ul:first-child li:nth-child(5)').attr("class",arr[5])
+            $('#navbar ul:first-child li:nth-child(6)').attr("class",arr[6])
+            $('#navbar ul:first-child li:nth-child(7)').attr("class",arr[7])
+            $('#navbar ul:first-child li:nth-child(8)').attr("class",arr[8])
+            $('#navbar ul:first-child li:nth-child(9)').attr("class",arr[9])
+            $('#navbar ul:first-child li:nth-child(10)').attr("class",arr[10])
+            $('#navbar ul:first-child li:nth-child(11)').attr("class",arr[11])
+            $('#navbar ul:first-child li:nth-child(12)').attr("class",arr[12])
+            $('#navbar ul:first-child li:nth-child(13)').attr("class",arr[13])
+
       }
 
 

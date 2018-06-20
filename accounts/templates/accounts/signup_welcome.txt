@@ -1,0 +1,12 @@
+안녕하세요. {{ name }}님. {{ name }}님 께서는 {{ when }}에 가입하셨습니다.
+
+감사합니다.
+
+-AskDjango
+
+"""
+이거를 사용하기위해서는
+
+from django.template.loader import render_to_string as rts
+res('accounts/signup_welcome.txt', {'name':'geonil', 'when':'2018년'})
+"""
