@@ -19,8 +19,10 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace='blog')),
+    url(r'^blog/cbv/new', include('blog.urls')),
     url(r'^dojo/', include('dojo.urls', namespace='dojo')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+
 ]
 
 if settings.DEBUG:

@@ -15,112 +15,34 @@
     </div>
   </div>
 
-  <div>
-      <h4>Comments</h4>
 
-        {% for comment in post.comment_set.all %}
-        <div class="panel panel-default">
-          <div class="panel-heading">by {{comment.author}}</div>
-          <div class="panel-body">
-              {{ comment.message }}
-              <small>at {{comment.update_at}}</small>
-          </div>
-        </div>
-        {% endfor %}
+      <a href="{% url "blog:post_list" %}" ><h6 class="btn btn-primary">되돌아가기</h6></a>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>작성자</th>
+            <th>답변</th>
+            <th>작성일</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for comment in post.comment_set.all %}
+            <tr>
+              <td>{{comment.id}}</td>
+              <td>{{comment.author}}</td>
+              <td>{{ comment.message }}</td>
+              <td><small>at {{comment.update_at}}</small></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <hr>asdkjaslkdjadjal
 
-    </div>
-    <a href="{% url "blog:post_list" %}"><h3>되돌아가기</h3></a>
-</div>
+
 <!-- 여기에 블록을 주세요 -->
+
+
+
+
 {% endblock %}
-
-
-
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>건일이의 블로그</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <style>
-      .container.marketing .row .col-lg-4{
-            margin-top:80px;
-      }
-      .container.marketing .row .col-lg-4 #cont{
-            background-color: #cccccc;
-      }
-
-    </style>
-
-  </head>
-  <body>
-    <!-- start 네비게이션 -->
-    <div class="navbar-wrapper">
-      <div class="container">
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="/blog">Geonil's Blog</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="/blog" onclick="checkClick(1)">Home</a></li>
-                <li><a href="#About" onclick="checkClick(2)">About</a></li>
-                <li><a href="#Contact" onclick="checkClick(3)">Contact</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <!-- end 네비게이션 -->
-
-      <!-- start FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2018 GEONIL. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-      <!-- end FOOTER -->
-    </div>
-    <!-- end 컨텐츠 -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script>
-      function checkClick(index)
-      {
-          let arr = [0,"","",""]
-          if(index)arr[index] = 'active'
-            $('#navbar ul li:nth-child(1)').attr("class",arr[1])
-            $('#navbar ul li:nth-child(2)').attr("class",arr[2])
-            $('#navbar ul li:nth-child(3)').attr("class",arr[3])
-      }
-
-
-
-    </script>
-  </body>
-</html>

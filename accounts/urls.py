@@ -6,6 +6,6 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    url(r'^profile/$', views.profile),
+    url(r'^profile/$', views.profile, name="profile"),
 
 ]

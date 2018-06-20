@@ -9,86 +9,29 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/journal/bootstrap.min.css"> -->
     <style>
+
+     html { position: relative; min-height: 100%; }
+     body { margin-bottom: 60px; }
+
+     #page-footer {
+       position: absolute;
+       bottom: 0;
+       width: 100%;
+       height: 60px;
+       line-height: 60px;
+       background-color: #f5f5f5;
+     }
+
       .container.marketing .row .col-lg-4{
             margin-top:80px;
       }
       .container.marketing .row .col-lg-4 #cont{
             background-color: #cccccc;
       }
+
     </style>
-
-  </head>
-  <body>
-    <!-- start 네비게이션 -->
-    <div class="navbar-wrapper">
-      <div class="container">
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="/blog">Geonil's Blog</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="#Home" onclick="checkClick(1)">Home</a></li>
-                <li><a href="#About" onclick="checkClick(2)">About</a></li>
-                <li class="dropdown">
-                  <a href="#" onclick="checkClick('drop')" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-                <li><a href="#Contact" onclick="checkClick(4)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(5)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(6)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(7)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(8)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(9)">Contact</a></li>
-                <li><a href="#Contact" onclick="checkClick(10)">Cont</a></li>
-                <li><a href="#Contact" onclick="checkClick(11)">Cont</a></li>
-                <li><a href="#Contact" onclick="checkClick(12)">Cont</a></li>
-                <li><a href="/accounts/profile" onclick="checkClick(13)">프로필 가기</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <!-- end 네비게이션 -->
-
-
-
-<!-- 여기에 블록을 주세요 -->
-
-{% block content %}
-{% endblock %}
-
-
-<!-- 여기에 블록을 주세요 -->
-
-
-      <!-- start FOOTER -->
-      <footer>
-        <hr>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2018 GEONIL. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-      <!-- end FOOTER -->
-    </div>
-    <!-- end 컨텐츠 -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script>
@@ -114,8 +57,79 @@
 
       }
 
-
-
     </script>
+  </head>
+  <body>
+    <!-- start 네비게이션 -->
+    <div class="navbar-wrapper">
+      <div class="container">
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{% url "root" %}">Geonil's Blog</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="{% url "root" %}" onclick="checkClick(1)">Home</a></li>
+                <li><a href="#About" onclick="checkClick(2)">About</a></li>
+                <li class="dropdown">
+                  <a href="#" onclick="checkClick('drop')" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                <li><a href="#Contact" onclick="checkClick(4)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(5)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(6)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(7)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(8)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(9)">Contact</a></li>
+                <li><a href="#Contact" onclick="checkClick(10)">Cont</a></li>
+                <li><a href="#Contact" onclick="checkClick(11)">Cont</a></li>
+                <li><a href="{% url "blog:post_form" %}" onclick="checkClick(12)">글작성</a></li>
+                <li><a href="/accounts/profile" onclick="checkClick(13)">프로필 가기</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- end 네비게이션 -->
+
+
+
+<!-- 여기에 블록을 주세요 -->
+
+{% block content %}
+{% endblock %}
+
+
+<!-- 여기에 블록을 주세요 -->
+<div class="row">
+  <div class="col-sm-12">
+    <div id="page-footer">
+      <div class="container">
+        <p class="text-muted">
+          &copy; AskDjango
+          여러분의 파이썬/장고 페이스메이커가 되겠습니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   </body>
 </html>
