@@ -1,0 +1,27 @@
+{% extends "accounts/layout.html" %}
+
+{% block content %}
+  <h2>{{user}}'s Profile</h2>
+
+  {% for post in profiles %}
+        <div class="col-lg-12">
+            <div style="margin:30px 30px"><img class="img-circle" src="https://store-old.linefriends.com/wp-content/uploads/2015/12/zero_search.png" alt="Generic placeholder image" width="140" height="140"></div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1" style="width:100px">이름</span><input type="text" class="form-control" placeholder="아이디" aria-describedby="basic-addon2" value="{{ user.username }}">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1" style="width:100px">주소</span> <input type="text" class="form-control" placeholder="주소" aria-describedby="basic-addon2" value="{{post.address}}">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1" style="width:100px">전화번호</span> <input type="text" class="form-control" placeholder="주소" aria-describedby="basic-addon2" value="{{post.phone_number}}">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1" style="width:100px">E-mail</span> <input type="text" class="form-control" placeholder="이메일" aria-describedby="basic-addon2" value="{{ user.email }}">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1" style="width:100px">date_joined</span> <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2" value="{{ user.date__joined }}">
+            </div>
+        </div>
+  {% endfor%}
+
+{% endblock %}

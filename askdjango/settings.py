@@ -51,7 +51,9 @@ ROOT_URLCONF = 'askdjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'askdjango','templates'),  #여기에 등록을 해줘요 askdjango를 기준으로 템플릿을 적용할수있다
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
