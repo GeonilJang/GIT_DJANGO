@@ -1,8 +1,9 @@
 from django.db import models
 
-
 import re
 from django.forms import ValidationError
+
+from django.shortcuts import redirect
 
 # Create your models here.
 """
@@ -42,11 +43,18 @@ class Post(models.Model):
     create_at = models.DateTimeField(auto_now_add=True) #생성되는 그 순가의 값일 넣는다.
     update_at = models.DateTimeField(auto_now=True) #업데이트 되는 그 시간을 계속 기록한다.
 
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', args=[self.id])
+
     class Meta:
         ordering = ['-id'] #해당필드 오름 차수 / -내림차수
 
     def __str__(self):
         return self.title
+"""
+모델을 생성하면 꼭!!! get_absolute_url 함수를 구현해주는 것이 좋다
+"""
+
 
 
 class Comment(models.Model):
