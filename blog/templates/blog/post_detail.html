@@ -13,7 +13,7 @@
     <div class="panel-body">
       <p>{{post.content|linebreaks}}</p>
     </div>
-  </div>w
+  </div>
 
   <div>
       <h4>Comments</h4>
@@ -29,6 +29,7 @@
         {% endfor %}
 
     </div>
+    <a href="{% url "blog:post_list" %}"><h3>되돌아가기</h3></a>
 </div>
 <!-- 여기에 블록을 주세요 -->
 {% endblock %}
@@ -96,18 +97,6 @@
       </div>
     </div>
     <!-- end 네비게이션 -->
-
-
-
-
-
-
-
-
-
-
-
-
 
       <!-- start FOOTER -->
       <footer>

@@ -78,7 +78,7 @@
              <li><h2><a>{{post.title}}</a></h2><small>by {{post.author}}</small></li>
              <li><p>{{post.content}}</p></li>
              <li><small>by {{post.update_at}}</small></li>
-             <li><a class="btn btn-default" href="/blog/{{post.id}}" role="button">보러가기 &raquo;</a></li>
+             <li><a class="btn btn-default" href="{% url "blog:post_detail" post.id %}" role="button">보러가기 &raquo;</a></li>
            </ul>
          </div>
    {% endfor%}
