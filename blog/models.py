@@ -38,7 +38,7 @@ class Post(models.Model):
 
     tag_set = models.ManyToManyField('Tag') #릴레이션을 할때는 테그 문자열로 넣어 준다
 
-    lnglat = models.CharField(max_length=50, help_text='경도/위도 포맷 으로', blank=True, validators=[lnglat_validator])
+    lnglat = models.CharField(max_length=50, blank=True,help_text='경도/위도 포맷 으로', validators=[lnglat_validator])
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     create_at = models.DateTimeField(auto_now_add=True) #생성되는 그 순가의 값일 넣는다.
     update_at = models.DateTimeField(auto_now=True) #업데이트 되는 그 시간을 계속 기록한다.
