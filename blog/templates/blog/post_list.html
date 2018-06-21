@@ -70,6 +70,7 @@
    <input type="text" name="q" value={{q}} >
    <input type="submit" value="검색">
  </form>
+ <a href="{% url "blog:post_new"%}" class="btn btn-primary pull-right">글쓰기</a>
  <div class="row">
    {% for post in post_list %}
          <div class="col-lg-4">

@@ -11,5 +11,7 @@ urlpatterns = [
 
     url(r'^cbv/new/$', views_cbv.post_new, name="post_form"),
 
+    url(r'^new/$', views.post_new, name='post_new'),
+    url(r'^(?P<id>\d+)/edit/$',views.post_edit, name='post_edit'),
 
 ]
