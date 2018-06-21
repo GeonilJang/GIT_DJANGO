@@ -97,3 +97,8 @@ Get요청에서는 csrf token이 불필요
 </body>
 
 이렇게 전달해준다.
+
+
+
+ ** 뷰함수 호출시 이자와 리턴값 (HttpRequest, HttpResponse) **** 뷰함수 호출시 이자와 리턴값 (HttpRequest, HttpResponse) **
+ ep20
