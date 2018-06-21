@@ -47,7 +47,10 @@ def post_new(request):
                 그래서 이렇게 구현 할 수 있고~~!! 실제로 사용할떄는 form.py에서 save함수를 만들어서 거기서 불러다 쓰는 방법을 사용한다!!!
             """
             print(form.cleaned_data)
-            post = form.save()
+            post = form.save(commit=False) #아래에서 커빗 하고싶어서 !!
+
+            post.ip = request.META['REMOTE_ADDR'] #화면을 통해 입력 받지 않는 데이터를 데이버페이스에 저장하고 싶을때 쓰는방법
+            post.save()
             return redirect('/dojo/')
 
     else:

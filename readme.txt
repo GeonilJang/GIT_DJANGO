@@ -1,3 +1,20 @@
+
+******************************
+0)내가 엡을 만들었으면 setting = url 을 등록해주고
+0-1 ) 해당 앱에 접근할 url 형식들을 등록을 해준다 -> 이때 호출될 함수를 정의 해준다 views.py 이다
+1)model.py모델을만든다. -> 네가 입력받을 정보를 저장할 저장공간을 만들뿐
+2)forms.py에서 from을만든다 -> 화면에 보여주고 싶은 form을 만드는것이다!! 즉 데이버페이스 정의 처럼 내가 사용할 입력 형식을 만드렁 줄뿐
+3)post_form.html -> 내가 만든 폼을 화면에 적용시키는 작업을 한다! 즉 내가 만든 폼이 있어야 보여준다.
+4)view.py에서 내가 만든 form을 통해서 들어온 값의 유효성을 판단하고 값을! 데이터베이스에 넣어주는 작업을 한다.
+
+
+
+
+******************************
+
+
+
+
 ep12
 여러 템플릿 파일 별로 필연적으로 발생하는 중복을 "상속"을 통해 중복제거 상속은 여러번 이루어 질수 있다.
 
@@ -182,3 +199,20 @@ if(request.metho == "POST"):
   form = PostForm(request.POST, request.FILES)
 else:
   form = PostForm()
+
+
+
+** Model Form ** ** Model Form ** ** Model Form ** ** Model Form ** ** Model Form ** ** Model Form ** ** Model Form ** ** Model Form **
+"""
+ModelForm
+
++ django Form Base
++ 지정된 Model로 부터 필드 정보를 읽어 들여, form fields를 셋팅
+class PostForm(forms.ModelForm):
+  class Meta:
+    model = Post
+    fields = '__all__'  #전체 필드 지정. 혹은 list로 읽어올 필드면 지정
+
++내부적으로 model instance를 유지
++유효성 검증에 통과한 값들로 (cleaned_data), 지정 model instance 로의 저장 (save)을 지원 (Create or Update)
+""""
