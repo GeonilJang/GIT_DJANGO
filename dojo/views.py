@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse , JsonResponse
 import os
 from django.conf import settings
 from .forms import PostForm
+
 
 from .models import Post
 # Create your views here.
@@ -60,6 +61,24 @@ def post_new(request):
     })
 
 
+
+def post_edit(request, id):
+    post = get_object_or_404(Post, id=id)
+
+    if (request.method == 'POST'):
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if(form.is_valid()): #토큰을 가지고 들어왔다면 !
+            print(form.cleaned_data)
+            post = form.save(commit=False) #아래에서 커빗 하고싶어서 !!
+
+            post.ip = request.META['REMOTE_ADDR'] #화면을 통해 입력 받지 않는 데이터를 데이버페이스에 저장하고 싶을때 쓰는방법
+            post.save()
+            return redirect('/dojo/')
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'dojo/post_form.html',{
+        'form':form,
+    })
 
 
 
