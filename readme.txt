@@ -25,3 +25,32 @@ ep13
 ep14
 
 url reverse
+
+
+
+
+** HTML form ** ** HTML form ** ** HTML form ** ** HTML form ** ** HTML form ** ** HTML form **
+Get 방식 ->  head
+Post 방식 -> head + body (여기에 담아서 보낸다) 택배에 비유
+
+enctype 데이터 인코딩 방법
+기본 : application/x-www-from-urlencoded
+파일 : multipart/form-data
+실제로 쓰지는 않음 : test/plain
+
+urlencoded란?
+key=value 값의 쌍이 &문자로 이어진 형태를 말한다.
+공백은 +로 인코딩하며, Specia(한글 같은거) 문자들은 ascii 16진수로 변경
+
+from urllib.parse import urlencode
+print(urlencode({'key1':'value1', 'key2':10:, 'name':'공유'}))-> key1=value&이런식으로 인코딩해준다
+print('공유'.encode('utf8'))
+print(''.join('%{:X}'.format(ch) for in '공유'.encode('utf8')))
+
+
+
+<form action="" method ="POST" enctype="application/x-www-form-urlencoded">
+  <input type="text">
+  <textarea></textarea>
+
+</form>
