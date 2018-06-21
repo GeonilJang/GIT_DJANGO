@@ -145,3 +145,6 @@ from django import froms
 class PostForm(form.Form):
   title = form.CharField()
   content = form.CharField(widget=form.Textarea)
+
+
+Step2) 필드별로 유효성 검사
