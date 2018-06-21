@@ -40,10 +40,14 @@ def post_new(request):
             """
 
             #방법4) 사전형 데이터이기 때문에 가능한 방법
-            post = Post.objects.create(**form.cleaned_data)
-
-
+            """
+                post = Post.objects.create(**form.cleaned_data)
+            """
+            """
+                그래서 이렇게 구현 할 수 있고~~!! 실제로 사용할떄는 form.py에서 save함수를 만들어서 거기서 불러다 쓰는 방법을 사용한다!!!
+            """
             print(form.cleaned_data)
+            post = form.save()
             return redirect('/dojo/')
 
     else:

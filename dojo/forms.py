@@ -1,6 +1,7 @@
 #dojo/forms.py
 
 from django import forms
+from .models import Post
 
 
 def min_length_3_validator(value):
@@ -15,3 +16,10 @@ def min_length_3_validator(value):
 class PostForm(forms.Form):
     title = forms.CharField(validators=[min_length_3_validator])
     content = forms.CharField(widget=forms.Textarea) #문자열은 다 문자열 일뿐 길이제한이 없기 때문에
+
+    def save(self, commit=True):
+        post = Post(**self.cleaned_data)
+        # post = Post(**{'title':120938,'content':120938}) 이런 식으로 들어가느끼 내가 마음대로 낚아도 된다는 것을 보여주네
+        if commit:
+            post.save()
+        return post
