@@ -102,3 +102,46 @@ Get요청에서는 csrf token이 불필요
 
  ** 뷰함수 호출시 이자와 리턴값 (HttpRequest, HttpResponse) **** 뷰함수 호출시 이자와 리턴값 (HttpRequest, HttpResponse) **
  ep20
+
+
+
+** form ** ** form ** ** form ** ** form ** ** form ** ** form ** ** form **** form ** ** form **** form **** form **
+ep21
+
+front ---> form
++ 장고를 더욱 장고 스럽게 만들어주는 주옥같은 Feature
++ Model클래스와 유사하게 Form클래스를 정의
++ 주요 역할: 커스텀 Form 클래스를 통해...
+    -> 입력폼 html생성 : .as_table(), as_p(), .as_ul() 기본제공
+    -> 입력폼 값 검증(Validation)및 값 변환
+    -> 검증을 통과한 값들을 사전타입으로 제공 (cleaned_data)
+
+
+ex)
+def post_new(request):
+  if request.method =="POST":
+    form = PostForm(request.POST, request.FILES)
+    if( form.is_valid()):
+      post = Post(**self.cleaned_data)
+      post.save()
+      return redirect(post)
+  else:
+      form = PostForm()
+  return render(request, 'blog/post_form.html', {'form':form})
+
+폼 처리 시에 같은 url(즉 같은 뷰)에서 get/post로 나눠 처리
++ GET 방식으로 요청될 때 : 입력폼을 보여줍니다.
++ POST 방식으로 요청될 떄
+  -> 데이터를 입력받아 유효성 검증 과정을 거칩니다.
+  -> 검증 성공 시 : 해당데이터를 저장하고 success url로 이동
+  -> 검증 실패 시 : 오류메세지와 함께 입력폼을 다시 보여줍니다.
+
+
+Step1 ) Form 클래스 정의
+#dojo/form.py
+
+from django import froms
+
+class PostForm(form.Form):
+  title = form.CharField()
+  content = form.CharField(widget=form.Textarea)
