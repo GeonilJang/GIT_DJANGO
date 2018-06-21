@@ -73,3 +73,18 @@ def post_edit(request, id):
     return render(request, 'blog/post_form.html',{
         'form':form
     })
+
+#
+# def post_comment(request, id):
+#     post = get_object_or_404(Comment, id = id)
+#     if(request.method == 'POST'):
+#         form = CommentForm(request.POST, request.FILES)
+#         if(form.is_valid()):
+#             post = form.save()
+#             return redirect('/blog',id)
+#     else:
+#         form = CommentForm()
+#
+#     return render(request, 'blog/post_comment.html',{
+#         'form':form
+#     })
