@@ -3,6 +3,7 @@ from . import views
 from . import views_cbv
 
 urlpatterns = [
+    url(r'^new/$', views.post_new),
     #dojo/sum/숫자/숫자 인데 x 와 y는 변수에 속하고 이것을 views.mysum함수의 인자로 넘긴다.
     #어떠한 페턴이 들어오면 함수를 실행 하겠다.
     url(r'^sum/(?P<numbers>[\d/]+)/$', views.mysum),

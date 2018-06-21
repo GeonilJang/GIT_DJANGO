@@ -148,3 +148,37 @@ class PostForm(form.Form):
 
 
 Step2) 필드별로 유효성 검사
+
+#dojo/forms.py
+
+from django import forms
+
+
+def min_length_3_validator(value):
+    if(len(value) < 3):
+        raise forms.ValidationError('3글자 이상입력 해줘용')
+
+
+
+
+#모델을 만들고 바로 여기와서 이렇게 작성을 하게 되면 장고가 알아서 필드 값을 만들어서 제공해준다. 그리고 벨리데이션을 이용해서 필드에
+#서 발생하는 오류와 처리를 담당 해준다 여기까지는 지금 -> 폼형식을 만든 것이고 아직은!! 화면에 보여주는 작업을 하지 않았습니다.
+class PostForm(forms.Form):
+    title = forms.CharField(validator=[min_length_3_validator])
+    content = forms.CharField(widget=forms.Textarea) #문자열은 다 문자열 일뿐 길이제한이 없기 때문에
+
+
+
+Step3) View함수 내에서 Form 인스턴스 생성
+
+Get 요청을 통해 View함수가 호출될 때, -> url을 통해서 해당 페이지에 접근하려고 할때!!!
+Get/POSt 요청을 구분해서 form인스턴스를 생성한다.
+즉!! get으로 들어올때랑 post로 해당 url에 접속하려고 할때 보여주는 방법 처리가 분기 된다!!
+
+#dojo.views.py
+from .forms import PostForm
+
+if(request.metho == "POST"):
+  form = PostForm(request.POST, request.FILES)
+else:
+  form = PostForm()

@@ -1,9 +1,75 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse , JsonResponse
 import os
 from django.conf import settings
+from .forms import PostForm
 
+from .models import Post
 # Create your views here.
+
+
+def post_new(request):
+    if (request.method == 'POST'):
+        form = PostForm(request.POST, request.FILES)
+        if(form.is_valid()): #토큰을 가지고 들어왔다면 !
+
+            """
+            - 데이터 베이스에 값을 저장 시키는 방법 -
+            방법1)
+            post = Post()
+            post.title = form.cleaned_data['title']
+            post.content = form.cleaned_data['content']
+            post.save()
+            """
+
+            #방법2)
+            """
+            post = Post(
+                title =form.cleaned_data['title'],
+                content = form.cleaned_data['content']
+            )
+            post.save()
+            """
+
+            #방법3)
+            """
+            post = Post.objects.create(
+                title = form.cleaned_data['title'],
+                content = form.cleaned_data['content']
+            )
+            """
+
+            #방법4) 사전형 데이터이기 때문에 가능한 방법
+            post = Post.objects.create(**form.cleaned_data)
+
+
+            print(form.cleaned_data)
+            return redirect('/dojo/')
+
+    else:
+        form = PostForm()
+    return render(request, 'dojo/post_form.html',{
+        'form':form,
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #urls에 등록해주 변수 . 인자를 받을 수 있다. 그 값은 같아야 하는 것으로 보인다
 def mysum(request, numbers):
