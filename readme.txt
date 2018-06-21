@@ -30,6 +30,7 @@ url reverse
 
 
 ** HTML form ** ** HTML form ** ** HTML form ** ** HTML form ** ** HTML form ** ** HTML form **
+ep18
 Get 방식 ->  head
 Post 방식 -> head + body (여기에 담아서 보낸다) 택배에 비유
 
@@ -54,3 +55,45 @@ print(''.join('%{:X}'.format(ch) for in '공유'.encode('utf8')))
   <textarea></textarea>
 
 </form>
+
+
+
+
+ ** cross site request forgery ** ** cross site request forgery ** ** cross site request forgery ** ** cross site request forgery **
+ ep19
+
+사이트 간 요청 위조 공격
+
+공격자 사이트의 웹페이지에 접속하면, 그 즉시 site-victim.com에 새글쓰기 요청 사용자 모르게 전달됩니다.
+
+<body>
+  <form name="arrack_form" method="post" action="http://site-victim.com/blog/post/new">
+    <input type="hidden" name="title" value="스팸 제목"/>
+    <input type="hidden" name="content" value="스팸 내용"/>
+  <form>
+</body>
+
+
+
+csrf를 막기 위해 post 요청에 한해, csrf token 발급 및 체크
+
+post요청에 한해 CsrfViewMiddleware를 통해 csrf token을 체크
+- 체크 오류 시에는 403 forbidden 응답
+
+Get요청에서는 csrf token이 불필요
+
+
+
+------>   |            get 단계에서 token을 발급시켜서 post 로 보낸다 그래서 token확인
+          | 뷰
+<------   |
+
+<body>
+  <form name="arrack_form" method="post" action="http://site-victim.com/blog/post/new">
+    {% csrf_token %} 으로 써줌
+    <input type="text">
+    <textarea></textarea>
+  <form>
+</body>
+
+이렇게 전달해준다.
