@@ -19,6 +19,7 @@ def min_length_3_validator(value):
 class Post(models.Model):
     title = models.CharField(max_length=100, validators=[min_length_3_validator])
     content = models.TextField()
+    user_agent = models.CharField(max_length=200,blank=True)
     ip = models.CharField(max_length=15)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)

@@ -216,3 +216,13 @@ class PostForm(forms.ModelForm):
 +내부적으로 model instance를 유지
 +유효성 검증에 통과한 값들로 (cleaned_data), 지정 model instance 로의 저장 (save)을 지원 (Create or Update)
 """"
+
+
+
+
+
+
+
+
+
+** ep23 장고폼 유효성 검사 **** ep23 장고폼 유효성 검사 **** ep23 장고폼 유효성 검사 **** ep23 장고폼 유효성 검사 **
