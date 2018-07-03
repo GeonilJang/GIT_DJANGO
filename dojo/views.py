@@ -12,34 +12,7 @@ from .models import Post
 def post_new(request):
     if (request.method == 'POST'):
         form = PostForm(request.POST, request.FILES)
-        if(form.is_valid()): #토큰을 가지고 들어왔다면 !
-
-            """
-            - 데이터 베이스에 값을 저장 시키는 방법 -
-            방법1)
-            post = Post()
-            post.title = form.cleaned_data['title']
-            post.content = form.cleaned_data['content']
-            post.save()
-            """
-
-            #방법2)
-            """
-            post = Post(
-                title =form.cleaned_data['title'],
-                content = form.cleaned_data['content']
-            )
-            post.save()
-            """
-
-            #방법3)
-            """
-            post = Post.objects.create(
-                title = form.cleaned_data['title'],
-                content = form.cleaned_data['content']
-            )
-            """
-
+        if(form.is_valid()): #토큰을 가지고 들어왔다면 ! -> 여기서 벨리데이션을 시작한다.
             #방법4) 사전형 데이터이기 때문에 가능한 방법
             """
                 post = Post.objects.create(**form.cleaned_data)
@@ -49,7 +22,6 @@ def post_new(request):
             """
             print(form.cleaned_data)
             post = form.save(commit=False) #아래에서 커빗 하고싶어서 !!
-
             post.ip = request.META['REMOTE_ADDR'] #화면을 통해 입력 받지 않는 데이터를 데이버페이스에 저장하고 싶을때 쓰는방법
             post.save()
             return redirect('/dojo/')

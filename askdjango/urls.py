@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^dojo/', include('dojo.urls', namespace='dojo')),
     url(r'^geonil/', include('geonil.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+    url(r'^products/', include('products.urls', namespace='products')),
 
 ]
 

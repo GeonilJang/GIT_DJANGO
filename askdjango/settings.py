@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'dojo',
     'accounts',
     'geonil',
+    'products',
 ]
 
 MIDDLEWARE = [

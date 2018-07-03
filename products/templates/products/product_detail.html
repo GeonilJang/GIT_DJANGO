@@ -1,0 +1,19 @@
+{% extends "products/layout.html"%}
+
+{% block content %}
+<!-- 여기에 블록을 주세요 -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div  style="margin-left:80px;margin-right:80px">
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong>{{post.title}}</div>
+          <div class="panel-body">
+            <p>{{post.content|linebreaks}}</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
