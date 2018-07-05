@@ -5,6 +5,8 @@ from django.forms import ValidationError
 
 from django.shortcuts import redirect
 from django.urls import reverse
+# from imagekit.models import ProcessedImageField
+# from imagekit.processors import Thumbnail
 # Create your models here.
 """
 데이터 베이스 모델링 하기
@@ -35,9 +37,13 @@ class Post(models.Model):
     #                          ))
     title = models.CharField(max_length=100, verbose_name='제목', help_text="포스팅 제목을 입력해 주세요. 최대 100글자.")
     content = models.TextField(verbose_name='내용')
-
     tag_set = models.ManyToManyField('Tag') #릴레이션을 할때는 테그 문자열로 넣어 준다
-
+    photo = models.ImageField(blank=True, upload_to='blog/post/%Y/%m/%d')
+    # photo_thubnail = ImageSpecField(source="photo",
+    #                                     processors=[Thumbnail(300,300)],
+    #                                     format = 'JPEG',
+    #                                     options= {'quality':60}
+    #                                 )
     lnglat = models.CharField(max_length=50, blank=True,help_text='경도/위도 포맷 으로', validators=[lnglat_validator])
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     create_at = models.DateTimeField(auto_now_add=True) #생성되는 그 순가의 값일 넣는다.

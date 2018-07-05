@@ -1,4 +1,4 @@
-{% extends "blog/layout.html"%}
+{% extends "food/layout.html"%}
 
 {% block title%}
   {{ post.title }}
@@ -17,9 +17,9 @@
   </div>
 
 
-      <a href="{% url "blog:post_list" %}" ><h6 class="btn btn-primary">메인으로</h6></a>
-      <a href="{% url "blog:post_edit" post.id %}" ><h6 class="btn btn-default pull-right">글 수정하기</h6></a>
-      <table class="table table-hover table-bordered">
+      <a href="{% url "food:food_list" %}" ><h6 class="btn btn-primary">메인으로</h6></a>
+      <!-- <a href="{% url "blog:post_edit" post.id %}" ><h6 class="btn btn-default pull-right">글 수정하기</h6></a> -->
+      <!-- <table class="table table-hover table-bordered">
         <thead>
           <tr>
             <th>id</th>
@@ -39,7 +39,7 @@
           {% endfor %}
         </tbody>
       </table>
-      <hr>asdkjaslkdjadjal
+      <hr>asdkjaslkdjadjal -->
 
 
 <!-- 여기에 블록을 주세요 -->

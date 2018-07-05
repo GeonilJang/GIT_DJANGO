@@ -1,0 +1,22 @@
+{% extends "food/layout.html"%} <!--꼭 이렇게 풀로 적어주세요 -->
+
+{% block content %}
+<a href="{% url "food:food_new"%}" class="btn btn-primary pull-right">글쓰기</a>
+<div class=container>
+    <div class="row">
+      <div class='col-sm-12'>
+        {% for post in posts %}
+        <div class="col-lg-6">
+          <ul style="list-style:none;">
+            <li><img class="img-circle" src="{{post.photo.url}}" alt="Generic placeholder image" width="300" height="300"></li>
+            <li><h2><a href="{% url "food:food_detail" post.id %}">{{post.title}}</a></h2></li>
+            <li><p>{{post.content}}</p></li>
+            <li><small>by {{post.author}} at {{post.update_at}}</small></li>
+            <li><a class="btn btn-default" href="{% url "food:food_detail" post.id %}" role="button">보러가기 &raquo;</a></li>
+          </ul>
+        </div>
+        {% endfor%}
+      </div>
+    </div>
+</div>
+{% endblock%}

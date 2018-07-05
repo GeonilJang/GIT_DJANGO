@@ -76,8 +76,8 @@
    {% for post in post_list %}
          <div class="col-lg-4">
            <ul style="list-style:none;">
-             <li><img class="img-circle" src="https://store-old.linefriends.com/wp-content/uploads/2015/12/zero_search.png" alt="Generic placeholder image" width="140" height="140"></li>
-             <li><h2><a>{{post.title}}</a></h2><small>by {{post.author}}</small></li>
+             <li><img class="img-circle" src="/media/{{post.photo}}" alt="Generic placeholder image" width="140" height="140"></li>
+             <li><h2><a href="{% url "blog:post_detail" post.id %}">{{post.title}}</a></h2><small>by {{post.author}}</small></li>
              <li><p>{{post.content}}</p></li>
              <li><small>by {{post.update_at}}</small></li>
              <li><a class="btn btn-default" href="{% url "blog:post_detail" post.id %}" role="button">보러가기 &raquo;</a></li>
