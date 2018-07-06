@@ -1,18 +1,29 @@
 {% extends "blog/layout.html"%} <!--꼭 이렇게 풀로 적어주세요 -->
 
 {% block content %}
-<div class="container" style="margin-bottom:150px">
-  <div class="row">
-    <div class="col-md-12">
-      <form action="" method="post" enctype= "multipart/form-data">
-        {% csrf_token %}
-        <table class="table table-hover table-bordered">
-          {{ form.as_table }}
-        </table>
-        <input type="submit" class="btn btn-primary"></input>
-        <a class="btn btn-primary" href="/blog/">되돌아가기</a>
-      </form>
-    </div>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">새 글쓰기</h1>
+
+<!-- main rolling -->
+  <div class="row placeholders">
+
   </div>
+<!-- end main rolling -->
+
+ <!-- list-table -->
+ <h4 class="sub-header">
+
+ </h4>
+ <form action="" method="post" enctype= "multipart/form-data" class="">
+   {% csrf_token %}
+   <div class="table-responsive">
+     <table class="table table-hover">
+         {{ form.as_table }}
+     </table>
+     <input type="submit" class="btn btn-primary" value="완료"></input>
+     <a class="btn btn-primary" href="/blog/">취소</a>
+   </form>
+ <!-- end list-table -->
+ </div>
 </div>
 {% endblock%}

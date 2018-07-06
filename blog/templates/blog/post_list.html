@@ -1,51 +1,55 @@
- {% extends "blog/layout.html"%} <!--꼭 이렇게 풀로 적어주세요 -->
+ {% extends "blog/layout.html"%}
+ {% load static %}
  {% block content %}
- <!-- 여기에 블록을 주세요 -->
 
-     <!-- start 메인베너 -->
+ <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+   <h1 class="page-header">Posting</h1>
+
+<!-- main rolling -->
+   <div class="row placeholders">
      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-       <!-- Indicators -->
        <ol class="carousel-indicators">
          <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
          <li data-target="#myCarousel" data-slide-to="2"></li>
          <li data-target="#myCarousel" data-slide-to="3"></li>
+         <li data-target="#myCarousel" data-slide-to="4"></li>
        </ol>
        <div class="carousel-inner" role="listbox">
          <div class="item active">
-           <img class="first-slide" style="height:400px; width:100%" src="https://i.ytimg.com/vi/7Hn24pTQpTY/maxresdefault.jpg" alt="First slide">
+           <img class="first-slide" style="height:400px; width:100%" src="{% static "img/banner1.png" %}" alt="First slide">
            <div class="container">
              <div class="carousel-caption">
-               <h1>Example headline.</h1>
+               <h1>1번 배너</h1>
                <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
                <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
              </div>
            </div>
          </div>
          <div class="item">
-           <img class="second-slide" style="height:400px; width:100%" src="http://cdn.econovill.com/news/photo/201706/316314_158192_2822.JPG" alt="Second slide">
+           <img class="second-slide" style="height:400px; width:100%" src="{% static "img/banner2.png" %}" alt="Second slide">
            <div class="container">
              <div class="carousel-caption">
-               <h1>Another example headline.</h1>
+               <h1>2번 배너</h1>
                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
              </div>
            </div>
          </div>
          <div class="item">
-           <img class="third-slide" style="height:400px; width:100%" src="http://sgdesign.co.kr/web/product/big/201712/2018_Line_1st_m/18line_mirror_iX-S_01.jpg" alt="Third slide">
+           <img class="third-slide" style="height:400px; width:100%" src="{% static "img/banner3.jpg" %}" alt="Third slide">
            <div class="container">
              <div class="carousel-caption">
-               <h1>One more for good measure.</h1>
+               <h1>3번 배너</h1>
                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
              </div>
            </div>
          </div>
          <div class="item">
-           <img class="forth-slide" style="height:400px; width:100%" src=".test4.jpg" alt="forth slide">
+           <img class="forth-slide" style="height:400px; width:100%" src="{% static "img/banner4.jpg" %}" alt="forth slide">
            <div class="container">
              <div class="carousel-caption">
-               <h1>One more for good measure.</h1>
+               <h1>4번 배너</h1>
                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
              </div>
@@ -61,67 +65,37 @@
          <span class="sr-only">Next</span>
        </a>
      </div>
-     <!-- end 메인베너 -->
-     <!-- start 컨텐츠 -->
-     <div class="container marketing" style="margin-top:30px">
+   </div>
+<!-- end main rolling -->
 
-           <!-- Three columns of text below the carousel -->
- <form class="" action="" method="get">
-   <input type="text" name="q" value={{q}} >
-   <input type="submit" value="검색">
- </form>
-
- <a href="{% url "blog:post_new"%}" class="btn btn-primary pull-right">글쓰기</a>
- <div class="row">
-   {% for post in post_list %}
-         <div class="col-lg-4">
-           <ul style="list-style:none;">
-             <li><img class="img-circle" src="/media/{{post.photo}}" alt="Generic placeholder image" width="140" height="140"></li>
-             <li><h2><a href="{% url "blog:post_detail" post.id %}">{{post.title}}</a></h2><small>by {{post.author}}</small></li>
-             <li><p>{{post.content}}</p></li>
-             <li><small>by {{post.update_at}}</small></li>
-             <li><a class="btn btn-default" href="{% url "blog:post_detail" post.id %}" role="button">보러가기 &raquo;</a></li>
-           </ul>
-         </div>
-   {% endfor%}
-       </div>
-
-
-       <hr class="featurette-divider">
-
-       <div class="row featurette">
-         <div class="col-md-7">
-           <h2 id="Home" class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-         </div>
-         <div class="col-md-5">
-           <img class="featurette-image img-responsive center-block" src="https://i.pinimg.com/originals/8e/54/9c/8e549cc1717fa1bfc57a7b5030b3c169.jpg" alt="Generic placeholder image">
-         </div>
-       </div>
-
-       <hr class="featurette-divider">
-
-       <div class="row featurette">
-         <div class="col-md-7 col-md-push-5">
-           <h2  id="About" class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-         </div>
-         <div class="col-md-5 col-md-pull-7">
-           <img class="featurette-image img-responsive center-block" src="https://i.pinimg.com/originals/8e/54/9c/8e549cc1717fa1bfc57a7b5030b3c169.jpg" alt="Generic placeholder image">
-         </div>
-       </div>
-
-       <hr class="featurette-divider">
-
-       <div class="row featurette">
-         <div class="col-md-7">
-           <h2  id="Contact" class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-         </div>
-         <div class="col-md-5">
-           <img class="featurette-image img-responsive center-block" src="https://i.pinimg.com/originals/8e/54/9c/8e549cc1717fa1bfc57a7b5030b3c169.jpg" alt="Generic placeholder image">
-         </div>
-       </div>
-
-       <hr class="featurette-divider"  style="margin-bottom:100%">
+  <!-- list-table -->
+  <h4 class="sub-header">
+    <form class="" action="" method="get">
+    <input type="text" name="q" value={{q}} >
+    <input type="submit" value="search">
+    </form>
+  </h4>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>작성자</th>
+          <th>제목</th>
+          <th>수정일</th>
+          <th>작성일</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in post_list %}
+        <tr>
+          <td>{{post.id}}</td> <td>{{post.author}}</td><td><a href="{% url "blog:post_detail" post.id%}">{{post.title}}</a></td><td>{{post.update_at}}</td><td>{{post.create_at}}</td>
+        </tr>
+        {% endfor%}
+      </tbody>
+    </table>
+  <!-- end list-table -->
+    <a href="{% url "blog:post_new"%}" class="btn btn-primary pull-right">글쓰기</a>
+  </div>
+</div>
  {% endblock%}

@@ -1,6 +1,32 @@
 {% extends "food/layout.html"%} <!--꼭 이렇게 풀로 적어주세요 -->
 
 {% block content %}
+<script>
+window.onload = function () {
+
+
+  let dom = document.getElementById('btn1');
+  dom.addEventListener('click', function(text){
+    alert("hello world")
+    let text1 = document.getElementById('valu').value
+    console.log(text1)
+  })
+}
+
+
+</script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form action="" width="100%">
+        <textarea name="" id="valu" cols="100%" rows="10"></textarea>
+        <a id="btn1"  class="btn btn-primary">장난치기</a>
+      </form>
+    </div>
+  </div>
+
+</div>
 <a href="{% url "food:food_new"%}" class="btn btn-primary pull-right">글쓰기</a>
 <div class=container>
     <div class="row">
@@ -19,4 +45,6 @@
       </div>
     </div>
 </div>
+
+
 {% endblock%}

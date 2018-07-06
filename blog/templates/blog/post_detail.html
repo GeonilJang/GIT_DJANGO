@@ -7,9 +7,14 @@
 
 {% block content %}
 <!-- 여기에 블록을 주세요 -->
+
+ <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+   <h1 class="page-header">{{post.title}}</h1>
+
+
 <div  style="margin-left:80px;margin-right:80px">
   <div class="panel panel-default">
-    <div class="panel-heading"><strong>{{post.title}}</div>
+    <div class="panel-heading"><strong>{{post.title}} at {{post.create_at}}</div>
     <div class="panel-body">
       <p><img src="/media/{{post.photo}}/" alt="" width=50%;></p>
       <p>{{post.content|linebreaks}}</p>
@@ -41,10 +46,5 @@
       </table>
       <hr>asdkjaslkdjadjal
 
-
 <!-- 여기에 블록을 주세요 -->
-
-
-
-
 {% endblock %}
