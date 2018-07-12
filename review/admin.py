@@ -5,3 +5,4 @@ from .models import Review
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ['manager','shopid','shopname','shopurl','hosting','server','checklogin','checkcont','opinion','fitness','dateregi']
+    list_display_links = ['shopname']
