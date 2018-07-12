@@ -4,7 +4,6 @@ from .models import Profile
 
 qs = Profile.objects.all()
 
+# @login_required
 def profile(request):
-    return render(request, 'accounts/profile.html',{
-        "profiles":qs
-    })
+    return render(request,"accounts/profile.html")

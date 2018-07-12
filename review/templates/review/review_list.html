@@ -1,0 +1,66 @@
+{% extends "review/layout.html"%}
+
+{% block style%}
+body{
+
+}
+table thead tr th{
+  text-align:center;
+}
+table tbody tr td{
+  text-align:center;
+}
+{% endblock%}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="page-header">Review</h1>
+      <table class="table table-hover table-boreded">
+        <thead>
+          <tr>
+            <th class="">담당자</th>
+            <th class="">가맹점 ID</th>
+            <th class="">가맹점명</th>
+            <th class="col-md-2">가맹점 URL</th>
+            <th class="col-md-1">호스팅사</th>
+            <th class="col-md-1">네임서버</th>
+            <th class="col-md-1">비회원구매</th>
+            <th class="col-md-2">사이트구조</th>
+            <th class="col-md-3">검도의견</th>
+            <th class="col-md-1">적합도</th>
+            <th class="col-md-1">등록일</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for review in reviews%}
+          <tr>
+            <td>{{review.manager}}</td>
+            <td>{{review.shopid}}</td>
+            <td>{{review.shopname}}</td>
+            <td>{{review.shopurl}}</td>
+            <td>{{review.hosting}}</td>
+            <td>{{review.server}}</td>
+            <td>{{review.checklogin|safe}}</td>
+            <td>{{review.checkcont|safe}}</td>
+            <td>{{review.opinion|linebreaks}}</td>
+            <td>{{review.fitness}}</td>
+            <td>{{review.dateregi}}</td>
+          </tr>
+          {% endfor%}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock%}

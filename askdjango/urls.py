@@ -22,9 +22,10 @@ urlpatterns = [
     url(r'^blog/cbv/new', include('blog.urls')),
     url(r'^dojo/', include('dojo.urls', namespace='dojo')),
     url(r'^geonil/', include('geonil.urls')),
-    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+    url(r'^accounts/', include('accounts.urls')),
     url(r'^products/', include('products.urls', namespace='products')),
     url(r'^food/', include('food.urls', namespace='food')),
+    url(r'^review/', include('review.urls', namespace='review')),
 
 ]
 

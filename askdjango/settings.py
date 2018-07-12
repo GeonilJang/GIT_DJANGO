@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'geonil',
     'products',
     'food',
+    'review',
 ]
 
 MIDDLEWARE = [
